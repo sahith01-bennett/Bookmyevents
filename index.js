@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const cookieParser =require('cookie-parser');
 const app = express();
+const PORT = process.env.PORT || 8080
 require('dotenv').config({ path: '.env' });
 
 require('dotenv').config();
@@ -27,6 +28,6 @@ connection.once('open',()=>{
 app.use('/events',eventRoutes);
 app.use('/users',userRoutes);
 
-app.listen(8080,()=>{
+app.listen(PORT,()=>{
     console.log('Server is running on port 8080');
 });
